@@ -40,11 +40,10 @@ If you wish to pre-train PlantGFM.To ensure compatibility with our pre-training 
 
 ```bash
 python pre_train.py \
-    --train_data_path './sample_data/pre-train/train.txt' \
-    --dev_data_path './sample_data/pre-train/dev.txt' \
+    --train_data_path './sample_data/Pre_Train/train.txt' \
+    --dev_data_path './sample_data/Pre_Train/val.txt' \
     --tokenizer_path './tokenizer.json' \
     --max_length 65538 \
-    --init_model_path '/path/to/model'
     --output_dir './output' \
     --per_device_train_batch_size 3 \
     --per_device_eval_batch_size 3 \
@@ -66,6 +65,7 @@ python pre_train.py \
     --bf16 True
 
 
+
 ```
 
 In this script:  
@@ -73,7 +73,7 @@ In this script:
 1. **`train_data_path`**: default="./sample_data/pre-train/train.txt", Path to training data.
 2. **`dev_data_path`**: default="./sample_data/pre-train/dev.txt", Path to validation data.
 3. **`tokenizer_path`**: default="/path/to/model", Path to the tokenizer.
-4. **`max_length`**: default=65538, Maximum length of input sequences, increased by 2 from the previous default value.
+4. **`max_length`**: default=1024, Maximum length of input sequences, increased by 2 from the previous default value.
 5. **`output_dir`**: default="./output", Output directory for model checkpoints.
 6. **`per_device_train_batch_size`**: default=1, Train batch size per device.
 7. **`per_device_eval_batch_size`**: default=1, Eval batch size per device.
@@ -93,7 +93,7 @@ In this script:
 21. **`ddp_find_unused_parameters`**: default=False, Whether to find unused parameters in DDP.
 22. **`gradient_checkpointing`**: default=True, Enable gradient checkpointing.
 23. **`bf16`**: default=True, Use bf16 precision.
-24. **`init_model_path`**: default="/path/to/model", Path to the pre-trained model .
+24. **`init_model_path`**: default="None", this is an optional parameter. It is not required to specify this path during the first phase of staged pre-training.
 
 
 
