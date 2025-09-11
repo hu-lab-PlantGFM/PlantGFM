@@ -124,7 +124,7 @@ Ensure that your data follows this structure, similar to the examples provided i
 
 ```bash
 python fine_tune.py
-  --data_name '/sample_data/regression'
+  --data_name '/sample_data/CREs_Strength_Prediction'
   --output_dir '/output' \
   --model_name_or_path 'path/to/model' \
   --tokenizer_path './tokenizer.json' \
