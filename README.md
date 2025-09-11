@@ -123,9 +123,9 @@ Ensure that your data follows this structure, similar to the examples provided i
 Ensure that your data follows this structure, similar to the examples provided in `/sample_data/classification` and `/sample_data/regression`, before proceeding with fine-tuning the model using the provided scripts.
 
 ```bash
-python fine_tune.py
-  --data_name '/sample_data/CREs_Strength_Prediction'
-  --output_dir '/output' \
+python fine_tune.py \
+  --data_name './sample_data/CREs_Strength_Prediction/'  \
+  --output_dir './output' \
   --model_name_or_path 'path/to/model' \
   --tokenizer_path './tokenizer.json' \
   --max_length 172 \
@@ -137,8 +137,8 @@ python fine_tune.py
   --save_strategy 'epoch' \
   --save_total_limit 3 \
   --weight_decay 0.01 \
-  --metric_for_best_model 'r2' \
   --task_type 'regression'
+
 
 ```
 
