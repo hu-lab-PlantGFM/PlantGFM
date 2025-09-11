@@ -36,7 +36,7 @@ python3 -m pip install -r requirements.txt
 ```
 ## 2. Pre-train ✒️
 
-If you want to retrain our model, you first need to download [PlantGFM](https://huggingface.co/hu-lab) locally from Hugging Face🤗.To ensure compatibility with our pre-training scripts, your data needs to be formatted according to the structure in the `/sample/pre-data` directory.
+If you wish to pre-train PlantGFM.To ensure compatibility with our pre-training scripts, your data needs to be formatted according to the structure in the `/sample/pre-data` directory.
 
 ```bash
 python pre_train.py \
@@ -98,7 +98,7 @@ In this script:
 
 
 ## 3. Fine-tune ✏️
-If you want to fine-tune our model, please take note of the following:🔍
+If you wish to fine-tune our model, the first step is to download PlantGFM locally from Hugging Face🤗. Before proceeding, please note the following important points:🔍
 
 
 -**`Sequence Preprocessing`**: The sequences need to be converted into individual nucleotides. For example, the sequence "ATCGACCT" should be processed into "A T C G A C C T". between single nucleotides.
