@@ -47,7 +47,7 @@ To facilitate reproducibility, we provide **sample data** (demos) in this reposi
 | **TFBS Prediction** | Classification | [`./sample_data/TFBS_...`](./sample_data/TFBS_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/datasets/hu-lab/TFBS_Prediction) |
 | **CRE Strength** | Regression | [`./sample_data/CREs_...`](./sample_data/CREs_Strength_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets/hu-lab/CREs_Strength_Prediction) |
 | **Gene Expression** | Regression | [`./sample_data/Gene_Exp...`](./sample_data/Gene_Expression_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets/hu-lab/Gene_Expression_Prediction) |
-| **Chromatin Access.** | Regression | [`./sample_data/Chromatin...`](./sample_data/Chromatin_Accessibility_Prediction_ZM) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets/hu-lab/Chromatin_Accessibility_Prediction_ZM) |
+| **Chromatin Access.** | Classification | [`./sample_data/Chromatin...`](./sample_data/Chromatin_Accessibility_Prediction_ZM) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets/hu-lab/Chromatin_Accessibility_Prediction_ZM) |
 
 
 > **Note**: The `sample_data` folder contains only mini-batches provided for debugging purposes.
@@ -57,8 +57,15 @@ Due to the large scale of genomic data, we provide the processing scripts to gen
 * **Scripts Location**: Please refer to `./scripts/data_processing/` (Make sure this path exists!).
 * **Usage**:
   ```bash
-  # Example: Processing raw genome for Pre-training
+  # Example 1: Processing raw genome for Pre-training (CLM)
   python scripts/process_pretrain_data.py --input raw_genome.fa --output processed_data.txt
+
+  # Example 2: Processing data for Gene Prediction (Segmentation)
+  # Note: Requires both genome sequence (.fa) and annotation file (.gff3) to generate labels.
+  python scripts/process_genepred_data.py \
+      --genome raw_genome.fa \
+      --gff3 annotations.gff3 \
+      --output processed_genepred.txt
 
 ## 3. Pre-train ✒️
 
@@ -136,7 +143,7 @@ Before proceeding, please note the following **critical configurations**: 🔍
     - **Learning Rate**: `1e-4` or `5e-5`
     - **Weight Decay**: `0.01`
     - **Training Dynamics**:
-        - **Fast Convergence**: For tasks like **TFBS Prediction** and **Chromatin Accessibility**, the model converges rapidly. It typically requires only **a few epochs** to reach optimal performance.
+        - **Fast Convergence**: For classification tasks like **TFBS Prediction** and **Chromatin Accessibility**, the model converges rapidly. It typically requires only **a few epochs** to reach optimal performance.
         - **Extended Training**: For **Regression tasks** (e.g., Gene Expression, CRE Strength), the model requires a longer training horizon. We recommend running for **dozens of epochs** to ensure full convergence.
 - **Data Format**: Please ensure your data strictly follows the **CSV** (for Classification/Regression) or **TSV** (for Segmentation) formats provided in the **[Sample Data (Section 2)](#2-data-preparation--benchmarks-)**.
 
