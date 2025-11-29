@@ -41,9 +41,9 @@ To facilitate reproducibility, we provide **sample data** (demos) in this reposi
 
 | Scientific Task | Task Type | Sample Data <br> *(Format Reference)* | Full Data |
 | :--- | :--- | :--- | :--- |
-| **Pre-training** | MLM | [`./sample_data/Pre_Train`](./sample_data/Pre_Train) | 🛠️  (See Sec 2.1) |
+| **Pre-training** | CLM | [`./sample_data/Pre_Train`](./sample_data/Pre_Train) | 🛠️  (See Sec 2.1) |
 | **Gene Prediction** | Segmentation | [`./sample_data/Gene_Pred...`](./sample_data/Gene_Prediction) | 🛠️  (See Sec 2.1) |
-| **Gene Generation** | Generation | [`./sample_data/Gene_Gen...`](./sample_data/Gene_Generation) |[📥 **Download from Hugging Face**](https://huggingface.co/datasets/hu-lab/Gene_Generation) |
+| **Gene Generation** | CLM | [`./sample_data/Gene_Gen...`](./sample_data/Gene_Generation) |[📥 **Download from Hugging Face**](https://huggingface.co/datasets/hu-lab/Gene_Generation) |
 | **TFBS Prediction** | Classification | [`./sample_data/TFBS_...`](./sample_data/TFBS_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/datasets/hu-lab/TFBS_Prediction) |
 | **CRE Strength** | Regression | [`./sample_data/CREs_...`](./sample_data/CREs_Strength_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets/hu-lab/CREs_Strength_Prediction) |
 | **Gene Expression** | Regression | [`./sample_data/Gene_Exp...`](./sample_data/Gene_Expression_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets/hu-lab/Gene_Expression_Prediction) |
