@@ -147,23 +147,28 @@ python fine_tune.py \
 
 ```
 
-In this script:  
 
-1. **`data_name`**: default=None, The name or path of the dataset for training, validation, and testing.
-2. **`output_dir`**: default=None, Directory to save model checkpoints and logs.
-3. **`model_name_or_path`**: default=None, Path to the pre-trained model or model name from Hugging Face Model Hub.
-4. **`tokenizer_path`**: default=None, Path to the tokenizer used for text preprocessing.
-5. **`max_length`**: default=172, Maximum sequence length for tokenization. Sequences longer than this are truncated.
-6. **`batch_size`**: default=96, Batch size for training and evaluation.
-7. **`epochs`**: default=20, Number of training epochs (full passes through the dataset).
-8. **`learning_rate`**: default=1e-4, Learning rate for training.
-9. **`logging_strategy`**: default='epoch', choices=['steps', 'epoch'], How frequently to log training progress ('steps' or 'epoch').
-10. **`evaluation_strategy`**: default='epoch', choices=['steps', 'epoch'], How frequently to evaluate the model ('steps' or 'epoch').
-11. **`save_strategy`**: default='epoch', choices=['steps', 'epoch'], How frequently to save model checkpoints ('steps' or 'epoch').
-12. **`save_total_limit`**: default=1, Maximum number of checkpoints to save.
-13. **`weight_decay`**: default=0.001, Weight decay used to prevent overfitting.
-14. **`task_type`**: default=None, Type of task ('segmentation'、'regression' or 'classification').
+### Fine-tuning Arguments
 
+| Argument | Default | Description |
+| :--- | :--- | :--- |
+| **Data & Model Paths** | | |
+| `data_name` | `None` | Path to the dataset folder containing train/dev/test files. |
+| `output_dir` | `None` | Directory where checkpoints and logs will be saved. |
+| `model_name_or_path` | `None` | Hugging Face model ID or local path to the pre-trained model. |
+| `tokenizer_path` | `None` | Path to the tokenizer directory. |
+| **Training Hyperparameters** | | |
+| `task_type` | `None` | The specific task type: `classification`, `regression`, or `segmentation`. |
+| `epochs` | `20` | Total number of training epochs. |
+| `batch_size` | `96` | Batch size per device for training and evaluation. |
+| `learning_rate` | `1e-4` | Initial learning rate. |
+| `weight_decay` | `0.001` | Weight decay coefficient to prevent overfitting. |
+| `max_length` | `172` | Max sequence length. Longer sequences are truncated. |
+| **Strategy & Logging** | | |
+| `logging_strategy` | `'epoch'` | Logging frequency (`steps` or `epoch`). |
+| `evaluation_strategy` | `'epoch'` | Evaluation frequency (`steps` or `epoch`). |
+| `save_strategy` | `'epoch'` | Checkpoint saving frequency (`steps` or `epoch`). |
+| `save_total_limit` | `1` | Maximum number of checkpoints to keep (deletes oldest). |
 
 
 
