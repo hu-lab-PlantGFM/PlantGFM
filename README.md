@@ -41,16 +41,16 @@ To facilitate reproducibility, we provide **sample data** (demos) in this reposi
 
 | Scientific Task | Task Type | Sample Data (GitHub) <br> *(Format Reference)* | Full Data / Reproduction Source |
 | :--- | :--- | :--- | :--- |
-| **TFBS Prediction** | Classification | [`./sample_data/TFBS_...`](./sample_data/TFBS_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets) |
-| **CRE Strength** | Regression | [`./sample_data/CREs_...`](./sample_data/CREs_Strength_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets) |
-| **Gene Expression** | Regression | [`./sample_data/Gene_Exp...`](./sample_data/Gene_Expression_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets) |
-| **Chromatin Access.** | Regression | [`./sample_data/Chromatin...`](./sample_data/Chromatin_Accessibility_Prediction_ZM) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets) |
-| **Gene Prediction** | Segmentation | [`./sample_data/Gene_Pred...`](./sample_data/Gene_Prediction) | 🛠️ **Generate via Scripts** (See Sec 2.1) |
-| **Pre-training** | MLM | [`./sample_data/Pre_Train`](./sample_data/Pre_Train) | 🛠️ **Generate via Scripts** (See Sec 2.1) |
+| **TFBS Prediction** | Classification | [`./sample_data/TFBS_...`](./sample_data/TFBS_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/datasets/hu-lab/TFBS_Prediction) |
+| **CRE Strength** | Regression | [`./sample_data/CREs_...`](./sample_data/CREs_Strength_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets/hu-lab/CREs_Strength_Prediction) |
+| **Gene Expression** | Regression | [`./sample_data/Gene_Exp...`](./sample_data/Gene_Expression_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets/hu-lab/Gene_Expression_Prediction) |
+| **Chromatin Access.** | Regression | [`./sample_data/Chromatin...`](./sample_data/Chromatin_Accessibility_Prediction_ZM) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets/hu-lab/Chromatin_Accessibility_Prediction_ZM) |
+| **Gene Prediction** | Segmentation | [`./sample_data/Gene_Pred...`](./sample_data/Gene_Prediction) | 🛠️  (See Sec 2.1) |
+| **Pre-training** | MLM | [`./sample_data/Pre_Train`](./sample_data/Pre_Train) | 🛠️  (See Sec 2.1) |
 
-> **Note**: Do not use `sample_data` for training, as it contains only mini-batches for debugging purposes.
+> **Note**: The `sample_data` folder contains only mini-batches provided for debugging purposes.
 
-### 2.1 Data Processing (For Pre-training & Gene Prediction) 🛠️
+#### 2.1 Data Processing (For Pre-training & Gene Prediction) 🛠️
 Due to the large scale of genomic data, we provide the processing scripts to generate the training datasets from raw genomes.
 * **Scripts Location**: Please refer to `./scripts/data_processing/` (Make sure this path exists!).
 * **Usage**:
