@@ -35,7 +35,40 @@ git clone --recursive https://github.com/hu-lab-PlantGFM/PlantGFM.git
 cd PlantGFM
 python3 -m pip install -r requirements.txt
 ```
-## 2. Pre-train ✒️
+## 2. Datasets & Benchmarks 📊
+
+To ensure reproducibility while maintaining a lightweight repository, we distinguish between **Sample Data** and **Full Benchmarks**.
+
+### 2.1 Sample Data (For Format Checking) 📂
+The `./sample_data/` folder in this repository contains **mini-batch examples (demos)**. 
+* **Purpose**: Use these files to understand the input file structure (headers, separators) and to test if the code runs successfully on your machine.
+* **Warning**: Do **not** use these samples for training final models, as they are insufficient for convergence.
+
+### 2.2 Full Datasets (For Reproduction) 🤗
+The complete datasets used to produce the results in the paper are hosted on Hugging Face.
+* **Location**: [**Hugging Face: hu-lab/datasets**](https://huggingface.co/hu-lab/datasets)
+* **Access**: Please download the full datasets for the specific task you wish to reproduce.
+
+### 2.3 Task-Data Mapping
+Use the table below to find the correct data for your task:
+
+| Scientific Task | Task Type | Sample Data (GitHub) <br> *(Format Reference)* | Full Dataset (Hugging Face) <br> *(Download for Training)* |
+| :--- | :--- | :--- | :--- |
+| **TFBS Prediction** | Classification | [`./sample_data/TFBS_Prediction`](./sample_data/TFBS_Prediction) | [Download Link](https://huggingface.co/hu-lab/datasets) |
+| **CRE Strength** | Regression | [`./sample_data/CREs_Strength_Prediction`](./sample_data/CREs_Strength_Prediction) | [Download Link](https://huggingface.co/hu-lab/datasets) |
+| **Gene Prediction** | Segmentation | [`./sample_data/Gene_Prediction`](./sample_data/Gene_Prediction) | [Download Link](https://huggingface.co/hu-lab/datasets) |
+| **Gene Expression** | Regression | [`./sample_data/Gene_Expression_Prediction`](./sample_data/Gene_Expression_Prediction) | [Download Link](https://huggingface.co/hu-lab/datasets) |
+| **Chromatin Access.** | Regression | [`./sample_data/Chromatin_Accessibility_Prediction_ZM`](./sample_data/Chromatin_Accessibility_Prediction_ZM) | [Download Link](https://huggingface.co/hu-lab/datasets) |
+
+### 2.4 How to Use
+1. **Download** the full dataset from Hugging Face.
+2. **Organize** the data locally. We recommend following the same directory structure as `sample_data`.
+3. **Update Arguments**: When running `fine_tune.py`, ensure the `--data_name` argument points to your downloaded full dataset, not the sample folder.
+   ```bash
+   # Example
+   python fine_tune.py --data_name /path/to/downloaded/TFBS_Full_Data ...
+
+## 3. Pre-train ✒️
 
 If you wish to pre-train PlantGFM.To ensure compatibility with our pre-training scripts, your data needs to be formatted according to the structure in the `/sample/pre-data` directory.
 
@@ -102,7 +135,7 @@ python pre_train.py \
 
 
 
-## 3. Fine-tune ✏️
+## 4. Fine-tune ✏️
 If you wish to fine-tune our model, the first step is to download PlantGFM locally from Hugging Face🤗. Before proceeding, please note the following important points:🔍
 
 
