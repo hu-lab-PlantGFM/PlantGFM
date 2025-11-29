@@ -3,7 +3,8 @@
 [![Python Version](https://img.shields.io/badge/python-3.10-blue.svg)](https://docs.python.org/3.10/)
 [![PyTorch Version](https://img.shields.io/badge/torch-2.4.1-red.svg)](https://pytorch.org/get-started/locally/)
 [![Transformers Version](https://img.shields.io/badge/transformers-4.44-orange.svg)](https://huggingface.co/transformers/)
-[![Accelerate Version](https://img.shields.io/badge/accelerate-0.33-yellow.svg)](https://huggingface.co/docs/accelerate/)
+[![Accelerate Version](https://img.shields.io/badge/accelerate-0.34-yellow.svg)](https://huggingface.co/docs/accelerate/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 Welcome to the official repository for the paper "PlantGFM: A Genetic Foundation Model for Discovery and Creation of Plant Genes".
 
