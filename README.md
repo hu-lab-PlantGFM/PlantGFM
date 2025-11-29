@@ -53,7 +53,7 @@ To facilitate reproducibility, we provide **sample data** (demos) in this reposi
 > **Note**: The `sample_data` folder contains only mini-batches provided for debugging purposes.
 
 #### 2.1 Data Processing (For Pre-training & Gene Prediction) 
-Due to the large scale of genomic data, we provide the processing scripts to generate the training datasets from raw genomes (these scripts are also available in the Supplementary Materials of our manuscript).
+Due to the large scale of genomic data, we provide the processing scripts to generate the training datasets from raw genomes (download links can be found in the Supplementary Materials of our manuscript).
 
 * **Scripts Location**: Please refer to `./scripts/data_processing/`.
 * **Usage**:
