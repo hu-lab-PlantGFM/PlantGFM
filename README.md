@@ -68,33 +68,37 @@ python pre_train.py \
 
 
 ```
+### Pre-training Arguments
 
-In this script:  
-
-1. **`train_data_path`**: default="./sample_data/pre-train/train.txt", Path to training data.
-2. **`dev_data_path`**: default="./sample_data/pre-train/dev.txt", Path to validation data.
-3. **`tokenizer_path`**: default="/path/to/model", Path to the tokenizer.
-4. **`max_length`**: default=1024, Maximum length of input sequences, increased by 2 from the previous default value.
-5. **`output_dir`**: default="./output", Output directory for model checkpoints.
-6. **`per_device_train_batch_size`**: default=1, Train batch size per device.
-7. **`per_device_eval_batch_size`**: default=1, Eval batch size per device.
-8. **`max_steps`**: default=30000, Maximum number of training steps.
-9. **`logging_steps`**: default=1250, Number of steps between logs.
-10. **`save_steps`**: default=1250, Number of steps between saving checkpoints.
-11. **`eval_steps`**: default=1250, Number of steps between evaluations.
-12. **`learning_rate`**: default=6e-4, Learning rate.
-13. **`gradient_accumulation_steps`**: default=24, Gradient accumulation steps.
-14. **`adam_beta1`**: default=0.9, Adam beta1.
-15. **`adam_beta2`**: default=0.95, Adam beta2.
-16. **`weight_decay`**: default=0.1, Weight decay.
-17. **`warmup_steps`**: default=1000, Warmup steps.
-18. **`lr_scheduler_type`**: default="cosine", LR scheduler type (choices: ["linear", "cosine", "constant"]).
-19. **`save_total_limit`**: default=24, Total number of saved checkpoints.
-20. **`save_safetensors`**: default=False, Whether to save safetensors.
-21. **`ddp_find_unused_parameters`**: default=False, Whether to find unused parameters in DDP.
-22. **`gradient_checkpointing`**: default=True, Enable gradient checkpointing.
-23. **`bf16`**: default=True, Use bf16 precision.
-24. **`init_model_path`**: default="None", this is an optional parameter. It is not required to specify this path during the first phase of staged pre-training.
+| Argument | Default | Description |
+| :--- | :--- | :--- |
+| **Data & Model Paths** | | |
+| `train_data_path` | `./sample_data/pre-train/train.txt` | Path to the training dataset file. |
+| `dev_data_path` | `./sample_data/pre-train/dev.txt` | Path to the validation dataset file. |
+| `tokenizer_path` | `/path/to/model` | Path to the pre-trained tokenizer. |
+| `output_dir` | `./output` | Directory where model checkpoints will be saved. |
+| `init_model_path` | `None` | (Optional) Path to initialize weights for staged pre-training. |
+| **Training Hyperparameters** | | |
+| `max_length` | `1024` | Maximum length of input sequences. |
+| `learning_rate` | `6e-4` | Initial learning rate. |
+| `per_device_train_batch_size` | `1` | Batch size per GPU/TPU for training. |
+| `per_device_eval_batch_size` | `1` | Batch size per GPU/TPU for evaluation. |
+| `gradient_accumulation_steps` | `24` | Number of updates steps to accumulate before backward pass. |
+| `max_steps` | `30000` | Total number of training steps to perform. |
+| `warmup_steps` | `1000` | Number of steps used for a linear warmup from 0 to learning_rate. |
+| `weight_decay` | `0.1` | Weight decay to apply to all layers except bias/LayerNorm. |
+| `adam_beta1` | `0.9` | Beta1 for AdamW optimizer. |
+| `adam_beta2` | `0.95` | Beta2 for AdamW optimizer. |
+| `lr_scheduler_type` | `"cosine"` | The scheduler type to use (`linear`, `cosine`, `constant`). |
+| **System & Logging** | | |
+| `bf16` | `True` | Whether to use bf16 precision (requires Ampere+ GPU). |
+| `gradient_checkpointing` | `True` | Saves memory by recomputing gradients during backward pass. |
+| `ddp_find_unused_parameters` | `False` | Set to True only if using DDP with unused parameters. |
+| `save_safetensors` | `False` | Whether to save models in `safetensors` format. |
+| `logging_steps` | `1250` | Log training loss every X steps. |
+| `save_steps` | `1250` | Save a checkpoint every X steps. |
+| `eval_steps` | `1250` | Run evaluation every X steps. |
+| `save_total_limit` | `24` | Limit the total amount of checkpoints. Deletes the oldest. |
 
 
 
