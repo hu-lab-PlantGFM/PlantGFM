@@ -37,36 +37,26 @@ python3 -m pip install -r requirements.txt
 ```
 ## 2. Datasets & Benchmarks 📊
 
-To ensure reproducibility while maintaining a lightweight repository, we distinguish between **Sample Data** and **Full Benchmarks**.
+To facilitate reproducibility, we provide **sample data** (demos) in this repository for format verification, and **full datasets** (or processing scripts) for reproduction.
 
-### 2.1 Sample Data (For Format Checking) 📂
-The `./sample_data/` folder in this repository contains **mini-batch examples (demos)**. 
-* **Purpose**: Use these files to understand the input file structure (headers, separators) and to test if the code runs successfully on your machine.
-* **Warning**: Do **not** use these samples for training final models, as they are insufficient for convergence.
-
-### 2.2 Full Datasets (For Reproduction) 🤗
-The complete datasets used to produce the results in the paper are hosted on Hugging Face.
-* **Location**: [**Hugging Face: hu-lab/datasets**](https://huggingface.co/hu-lab/datasets)
-* **Access**: Please download the full datasets for the specific task you wish to reproduce.
-
-### 2.3 Task-Data Mapping
-Use the table below to find the correct data for your task:
-
-| Scientific Task | Task Type | Sample Data (GitHub) <br> *(Format Reference)* | Full Dataset (Hugging Face) <br> *(Download for Training)* |
+| Scientific Task | Task Type | Sample Data (GitHub) <br> *(Format Reference)* | Full Data / Reproduction Source |
 | :--- | :--- | :--- | :--- |
-| **TFBS Prediction** | Classification | [`./sample_data/TFBS_Prediction`](./sample_data/TFBS_Prediction) | [Download Link](https://huggingface.co/hu-lab/datasets) |
-| **CRE Strength** | Regression | [`./sample_data/CREs_Strength_Prediction`](./sample_data/CREs_Strength_Prediction) | [Download Link](https://huggingface.co/hu-lab/datasets) |
-| **Gene Prediction** | Segmentation | [`./sample_data/Gene_Prediction`](./sample_data/Gene_Prediction) | [Download Link](https://huggingface.co/hu-lab/datasets) |
-| **Gene Expression** | Regression | [`./sample_data/Gene_Expression_Prediction`](./sample_data/Gene_Expression_Prediction) | [Download Link](https://huggingface.co/hu-lab/datasets) |
-| **Chromatin Access.** | Regression | [`./sample_data/Chromatin_Accessibility_Prediction_ZM`](./sample_data/Chromatin_Accessibility_Prediction_ZM) | [Download Link](https://huggingface.co/hu-lab/datasets) |
+| **TFBS Prediction** | Classification | [`./sample_data/TFBS_...`](./sample_data/TFBS_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets) |
+| **CRE Strength** | Regression | [`./sample_data/CREs_...`](./sample_data/CREs_Strength_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets) |
+| **Gene Expression** | Regression | [`./sample_data/Gene_Exp...`](./sample_data/Gene_Expression_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets) |
+| **Chromatin Access.** | Regression | [`./sample_data/Chromatin...`](./sample_data/Chromatin_Accessibility_Prediction_ZM) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets) |
+| **Gene Prediction** | Segmentation | [`./sample_data/Gene_Pred...`](./sample_data/Gene_Prediction) | 🛠️ **Generate via Scripts** (See Sec 2.1) |
+| **Pre-training** | MLM | [`./sample_data/Pre_Train`](./sample_data/Pre_Train) | 🛠️ **Generate via Scripts** (See Sec 2.1) |
 
-### 2.4 How to Use
-1. **Download** the full dataset from Hugging Face.
-2. **Organize** the data locally. We recommend following the same directory structure as `sample_data`.
-3. **Update Arguments**: When running `fine_tune.py`, ensure the `--data_name` argument points to your downloaded full dataset, not the sample folder.
-   ```bash
-   # Example
-   python fine_tune.py --data_name /path/to/downloaded/TFBS_Full_Data ...
+> **Note**: Do not use `sample_data` for training, as it contains only mini-batches for debugging purposes.
+
+### 2.1 Data Processing (For Pre-training & Gene Prediction) 🛠️
+Due to the large scale of genomic data, we provide the processing scripts to generate the training datasets from raw genomes.
+* **Scripts Location**: Please refer to `./scripts/data_processing/` (Make sure this path exists!).
+* **Usage**:
+  ```bash
+  # Example: Processing raw genome for Pre-training
+  python scripts/process_pretrain_data.py --input raw_genome.fa --output processed_data.txt
 
 ## 3. Pre-train ✒️
 
