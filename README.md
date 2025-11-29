@@ -35,14 +35,14 @@ git clone --recursive https://github.com/hu-lab-PlantGFM/PlantGFM.git
 cd PlantGFM
 python3 -m pip install -r requirements.txt
 ```
-## 2. Datasets & Benchmarks 📊
+## 2. Datasets 📊
 
 To facilitate reproducibility, we provide **sample data** (demos) in this repository for format verification, and **full datasets** (or processing scripts) for reproduction.
 
 | Scientific Task | Task Type | Sample Data <br> *(Format Reference)* | Full Data |
 | :--- | :--- | :--- | :--- |
-| **Pre-training** | CLM | [`./sample_data/Pre_Train`](./sample_data/Pre_Train) | 🛠️  (See Sec 2.1) |
-| **Gene Prediction** | Segmentation | [`./sample_data/Gene_Pred...`](./sample_data/Gene_Prediction) | 🛠️  (See Sec 2.1) |
+| **Pre-training** | CLM | [`./sample_data/Pre_Train`](./sample_data/Pre_Train) | (See Sec 2.1) |
+| **Gene Prediction** | Segmentation | [`./sample_data/Gene_Pred...`](./sample_data/Gene_Prediction) | (See Sec 2.1) |
 | **Gene Generation** | CLM | [`./sample_data/Gene_Gen...`](./sample_data/Gene_Generation) |[📥 **Download from Hugging Face**](https://huggingface.co/datasets/hu-lab/Gene_Generation) |
 | **TFBS Prediction** | Classification | [`./sample_data/TFBS_...`](./sample_data/TFBS_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/datasets/hu-lab/TFBS_Prediction) |
 | **CRE Strength** | Regression | [`./sample_data/CREs_...`](./sample_data/CREs_Strength_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets/hu-lab/CREs_Strength_Prediction) |
@@ -52,7 +52,7 @@ To facilitate reproducibility, we provide **sample data** (demos) in this reposi
 
 > **Note**: The `sample_data` folder contains only mini-batches provided for debugging purposes.
 
-#### 2.1 Data Processing (For Pre-training & Gene Prediction) 🛠️
+#### 2.1 Data Processing (For Pre-training & Gene Prediction) 
 Due to the large scale of genomic data, we provide the processing scripts to generate the training datasets from raw genomes.
 * **Scripts Location**: Please refer to `./scripts/data_processing/` (Make sure this path exists!).
 * **Usage**:
@@ -89,9 +89,6 @@ python pre_train.py \
     --ddp_find_unused_parameters False \
     --gradient_checkpointing True \
     --bf16 True
-
-
-
 ```
 ### Pre-training Arguments
 
@@ -168,8 +165,6 @@ python fine_tune.py \
   --save_total_limit 3 \
   --weight_decay 0.01 \
   --task_type 'regression'
-
-
 ```
 
 
