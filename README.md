@@ -1,7 +1,7 @@
 # PlantGFM
 
-[![Python Version](https://img.shields.io/badge/python-3.8-blue.svg)](https://docs.python.org/3.8/library/index.html)
-[![PyTorch Version](https://img.shields.io/badge/torch-2.0-red.svg)](https://pytorch.org/get-started/locally/)
+[![Python Version](https://img.shields.io/badge/python-3.10-blue.svg)](https://docs.python.org/3.10/)
+[![PyTorch Version](https://img.shields.io/badge/torch-2.4.1-red.svg)](https://pytorch.org/get-started/locally/)
 [![Transformers Version](https://img.shields.io/badge/transformers-4.44-orange.svg)](https://huggingface.co/transformers/)
 [![Accelerate Version](https://img.shields.io/badge/accelerate-0.33-yellow.svg)](https://huggingface.co/docs/accelerate/)
 
@@ -23,7 +23,7 @@ In this repository, you will find the following:
 #### 1.2 Create environment 
 
 ```bash
-conda create -n gfms python=3.8
+conda create -n gfms python=3.10
 conda activate gfms
 ```
 
