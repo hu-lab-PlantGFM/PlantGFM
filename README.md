@@ -135,6 +135,9 @@ Before proceeding, please note the following **critical configurations**: 🔍
 - **Recommended Hyperparameters**: To ensure stable convergence (especially for reproduction), we strongly recommend using the following settings:
     - **Learning Rate**: `1e-4` or `5e-5`
     - **Weight Decay**: `0.01`
+    - **Training Dynamics**:
+        - **Fast Convergence**: For tasks like **TFBS Prediction** and **Chromatin Accessibility**, the model converges rapidly. It typically requires only **a few epochs** to reach optimal performance.
+        - **Extended Training**: For **Regression tasks** (e.g., Gene Expression, CRE Strength), the model requires a longer training horizon. We recommend running for **dozens of epochs** to ensure full convergence.
 - **Data Format**: Please ensure your data strictly follows the **CSV** (for Classification/Regression) or **TSV** (for Segmentation) formats provided in the **[Sample Data (Section 2)](#2-data-preparation--benchmarks-)**.
 
 ```bash
