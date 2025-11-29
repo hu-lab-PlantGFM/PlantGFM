@@ -125,29 +125,17 @@ python pre_train.py \
 
 
 ## 4. Fine-tune ✏️
-If you wish to fine-tune our model, the first step is to download PlantGFM locally from Hugging Face🤗. Before proceeding, please note the following important points:🔍
 
+Whether you aim to **fine-tune** the model on custom datasets or **reproduce** the results reported in our manuscript, the first step is to download PlantGFM locally from Hugging Face🤗. 
 
--**`Sequence Preprocessing`**: The sequences need to be converted into individual nucleotides. For example, the sequence "ATCGACCT" should be processed into "A T C G A C C T". between single nucleotides.
+Before proceeding, please note the following **critical configurations**: 🔍
 
--**`Handling  Other Bases`** :  Although our model was pre-trained on the bases 'A', 'T', 'C', 'G', and 'N', it can also handle a small amount of other characters.
-
-####  Classification and Regression
-
-For both classification and regression tasks,your dataset should be formatted as a CSV file with the following structure:
- ```csv
-sequence,labels
-```
-
-#### Segmentation
-
-For segmentation tasks, your dataset should be formatted as a TSV file with the following structure:
- ```tsv
-sequence    gene_0    gene_1    ...    gene_65536
-```
-Ensure that your data follows this structure, similar to the examples provided in `/sample_data/segmentation`, before proceeding with fine-tuning the model using the provided scripts.
-
-Ensure that your data follows this structure, similar to the examples provided in `/sample_data/classification` and `/sample_data/regression`, before proceeding with fine-tuning the model using the provided scripts.
+- **Sequence Preprocessing**: The sequences need to be converted into individual nucleotides with spaces. For example, the sequence `"ATCGACCT"` must be processed into `"A T C G A C C T"`.
+- **Handling Other Bases**: Although our model was pre-trained primarily on `'A', 'T', 'C', 'G', 'N'`, it allows for a small frequency of other characters.
+- **Recommended Hyperparameters**: To ensure stable convergence (especially for reproduction), we strongly recommend using the following settings:
+    - **Learning Rate**: `1e-4` or `5e-5`
+    - **Weight Decay**: `0.01`
+- **Data Format**: Please ensure your data strictly follows the **CSV** (for Classification/Regression) or **TSV** (for Segmentation) formats provided in the **[Sample Data (Section 2)](#2-data-preparation--benchmarks-)**.
 
 ```bash
 python fine_tune.py \
