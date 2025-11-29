@@ -81,8 +81,8 @@ python pre_train.py \
 | **Training Hyperparameters** | | |
 | `max_length` | `1024` | Maximum length of input sequences. |
 | `learning_rate` | `6e-4` | Initial learning rate. |
-| `per_device_train_batch_size` | `1` | Batch size per GPU/TPU for training. |
-| `per_device_eval_batch_size` | `1` | Batch size per GPU/TPU for evaluation. |
+| `per_device_train_batch_size` | `1` | Batch size per GPU for training. |
+| `per_device_eval_batch_size` | `1` | Batch size per GPU for evaluation. |
 | `gradient_accumulation_steps` | `24` | Number of updates steps to accumulate before backward pass. |
 | `max_steps` | `30000` | Total number of training steps to perform. |
 | `warmup_steps` | `1000` | Number of steps used for a linear warmup from 0 to learning_rate. |
@@ -95,9 +95,9 @@ python pre_train.py \
 | `gradient_checkpointing` | `True` | Saves memory by recomputing gradients during backward pass. |
 | `ddp_find_unused_parameters` | `False` | Set to True only if using DDP with unused parameters. |
 | `save_safetensors` | `False` | Whether to save models in `safetensors` format. |
-| `logging_steps` | `1250` | Log training loss every X steps. |
-| `save_steps` | `1250` | Save a checkpoint every X steps. |
-| `eval_steps` | `1250` | Run evaluation every X steps. |
+| `logging_steps` | `1250` | Number of update steps between logging training metrics (e.g., loss, learning rate). |
+| `save_steps` | `1250` | Number of update steps between saving model checkpoints to the output directory. |
+| `eval_steps` | `1250` | Number of update steps between performing evaluation on the validation set. |
 | `save_total_limit` | `24` | Limit the total amount of checkpoints. Deletes the oldest. |
 
 
