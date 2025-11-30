@@ -146,6 +146,7 @@ Before proceeding, please note the following **critical configurations**: 🔍
 - **Sequence Preprocessing**: The sequences need to be converted into individual nucleotides with spaces. For example, the sequence `"ATCGACCT"` must be processed into `"A T C G A C C T"`.
 - **Handling Other Bases**: Although our model was pre-trained primarily on `'A', 'T', 'C', 'G', 'N'`, it allows for a small frequency of other characters.
 - **Recommended Hyperparameters**: To ensure stable convergence and reproducibility, we recommend setting the learning rate to 1e-4 or 5e-5 and weight decay to 0.01, while keeping all other parameters at their default values.
+- **Max Length**: Set `max_length` to `data_length + 2` (accounting for start and end tokens).
 - **Training Dynamics**:
     - **Classification Tasks** (e.g., TFBS Prediction, Chromatin Accessibility): Converge rapidly, typically requiring only **a few epochs**.
     - **Regression Tasks** (e.g., Gene Expression, CRE Strength): Require an extended training horizon, usually needing **dozens of epochs** for full convergence.
