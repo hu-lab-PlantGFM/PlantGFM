@@ -65,7 +65,8 @@ python data_processing/gene_prediction/segment_genome.py \
     --output raw_genome.txt
 
 # Example 2: Processing data for Gene Prediction (Segmentation)
-# Note: Requires both genome sequence (.fna) and annotation file (.gff) to generate labels.
+# Note: Requires genome sequence (.fna) as the 1st argument and annotation file (.gff) as the 2nd.
+# The script will create a folder containing a labeled '.tsv' file ready for fine-tuning.
 bash data_processing/gene_prediction/run.sh \
     /path/to/raw_genome.fna \
     /path/to/raw_genome.gff
