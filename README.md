@@ -56,7 +56,8 @@ To facilitate reproducibility, we provide **sample data** (demos) in this reposi
 Due to the large scale of genomic data, we provide the processing scripts to generate the training datasets from raw genomes (download links can be found in the Supplementary Materials of our manuscript).
 
 * **Scripts Location**: Please refer to `./data_processing/`.
-  ```bash
+
+```bash
 # Example 1: Processing raw genome for Pre-training (CLM)
 # Splits genome into fixed-length sequences (65k bp) with overlap.
 python data_processing/gene_prediction/segment_genome.py \
@@ -65,9 +66,10 @@ python data_processing/gene_prediction/segment_genome.py \
 
 # Example 2: Processing data for Gene Prediction (Segmentation)
 # Note: Requires both genome sequence (.fna) and annotation file (.gff) to generate labels.
-bash scripts/data_processing/gene_prediction/run.sh \
+bash data_processing/gene_prediction/run.sh \
     /path/to/raw_genome.fna \
     /path/to/raw_genome.gff
+    
 ## 3. Pre-train ✒️
 
 If you wish to pre-train PlantGFM.To ensure compatibility with our pre-training scripts, your data needs to be formatted according to the structure in the `/sample/pre-data` directory.
