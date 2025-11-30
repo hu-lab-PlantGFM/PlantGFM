@@ -57,7 +57,7 @@ Due to the large scale of genomic data, we provide the processing scripts to gen
 
 * **Scripts Location**: Please refer to `./data_processing/`.
 
-
+```bash
 # Example 1: Processing raw genome for Pre-training (CLM)
 # Splits genome into fixed-length sequences (65k bp) with overlap.
 python data_processing/gene_prediction/segment_genome.py \
@@ -69,7 +69,7 @@ python data_processing/gene_prediction/segment_genome.py \
 bash data_processing/gene_prediction/run.sh \
     /path/to/raw_genome.fna \
     /path/to/raw_genome.gff
-
+```  
 ## 3. Pre-train ✒️
 
 If you wish to pre-train PlantGFM.To ensure compatibility with our pre-training scripts, your data needs to be formatted according to the structure in the `/sample/pre-data` directory.
