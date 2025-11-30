@@ -56,7 +56,6 @@ To facilitate reproducibility, we provide **sample data** (demos) in this reposi
 Due to the large scale of genomic data, we provide the processing scripts to generate the training datasets from raw genomes (download links can be found in the Supplementary Materials of our manuscript).
 
 * **Scripts Location**: Please refer to `./data_processing/`.
-* **Usage**:
   ```bash
 # Example 1: Processing raw genome for Pre-training (CLM)
 # Splits genome into fixed-length sequences (65k bp) with overlap.
