@@ -7,3 +7,4 @@ torch==2.4.1
 tqdm==4.66.5
 transformers==4.44
 pandas==2.0.3
+intervaltree==3.1.0

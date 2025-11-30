@@ -55,19 +55,20 @@ To facilitate reproducibility, we provide **sample data** (demos) in this reposi
 #### 2.1 Data Processing (For Pre-training & Gene Prediction) 
 Due to the large scale of genomic data, we provide the processing scripts to generate the training datasets from raw genomes (download links can be found in the Supplementary Materials of our manuscript).
 
-* **Scripts Location**: Please refer to `./scripts/data_processing/`.
+* **Scripts Location**: Please refer to `./data_processing/`.
 * **Usage**:
   ```bash
-  # Example 1: Processing raw genome for Pre-training (CLM)
-  python scripts/process_pretrain_data.py --input raw_genome.fa --output processed_data.txt
+# Example 1: Processing raw genome for Pre-training (CLM)
+# Splits genome into fixed-length sequences (65k bp) with overlap.
+python data_processing/gene_prediction/segment_genome.py \
+    --input raw_genome.fna \
+    --output raw_genome.txt
 
-  # Example 2: Processing data for Gene Prediction (Segmentation)
-  # Note: Requires both genome sequence (.fa) and annotation file (.gff3) to generate labels.
-  python scripts/process_genepred_data.py \
-      --genome raw_genome.fa \
-      --gff3 annotations.gff3 \
-      --output processed_genepred.tsv
-
+# Example 2: Processing data for Gene Prediction (Segmentation)
+# Note: Requires both genome sequence (.fna) and annotation file (.gff) to generate labels.
+bash scripts/data_processing/gene_prediction/run.sh \
+    /path/to/raw_genome.fna \
+    /path/to/raw_genome.gff
 ## 3. Pre-train ✒️
 
 If you wish to pre-train PlantGFM.To ensure compatibility with our pre-training scripts, your data needs to be formatted according to the structure in the `/sample/pre-data` directory.
@@ -96,7 +97,8 @@ python pre_train.py \
     --save_safetensors False \
     --ddp_find_unused_parameters False \
     --gradient_checkpointing True \
-    --bf16 True
+    --bf16 True \
+    --seed 2024
 ```
 ### Pre-training Arguments
 
@@ -165,7 +167,8 @@ python fine_tune.py \
   --save_strategy 'epoch' \
   --save_total_limit 3 \
   --weight_decay 0.01 \
-  --task_type 'regression'
+  --task_type 'regression' \
+      --seed 2024
 ```
 
 
