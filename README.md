@@ -170,7 +170,7 @@ python fine_tune.py \
   --save_total_limit 3 \
   --weight_decay 0.01 \
   --task_type 'regression' \
-      --seed 2024
+  --seed 2024
 ```
 
 
