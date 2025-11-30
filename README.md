@@ -129,6 +129,7 @@ python pre_train.py \
 | `save_steps` | `1250` | Number of update steps between saving model checkpoints to the output directory. |
 | `eval_steps` | `1250` | Number of update steps between performing evaluation on the validation set. |
 | `save_total_limit` | `24` | Limit the total amount of checkpoints. Deletes the oldest. |
+| `seed` | `2024` | Random seed for initialization to ensure reproducibility. |
 
 
 
@@ -189,7 +190,7 @@ python fine_tune.py \
 | `evaluation_strategy` | `'epoch'` | Evaluation frequency (`steps` or `epoch`). |
 | `save_strategy` | `'epoch'` | Checkpoint saving frequency (`steps` or `epoch`). |
 | `save_total_limit` | `1` | Maximum number of checkpoints to keep (deletes oldest). |
-
+| `seed` | `2024` | Random seed for initialization to ensure reproducibility. |
 
 
 

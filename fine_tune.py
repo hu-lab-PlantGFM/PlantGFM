@@ -140,7 +140,8 @@ def train_and_test(data_name, output_dir, model_name_or_path, tokenizer_path, ma
         load_best_model_at_end=True,
         bf16=True,
         weight_decay=weight_decay,
-        gradient_checkpointing=True
+        gradient_checkpointing=True,
+        seed=args.seed
     )
 
     # Set metric_for_best_model based on task_type
@@ -198,7 +199,7 @@ def parse_args():
     
     # Task type (regression, classification)
     parser.add_argument('--task_type', type=str, required=True, choices=['regression', 'classification','segmentation'], help="Type of task (regression, classification).")
-    
+    parser.add_argument('--seed', type=int, default=2024, help="Random seed for initialization")
     return parser.parse_args()
 
 if __name__ == "__main__":

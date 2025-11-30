@@ -40,6 +40,7 @@ def parse_args():
     parser.add_argument('--ddp_find_unused_parameters', type=bool, required=True, default=False, help="Whether to find unused parameters in DDP")
     parser.add_argument('--gradient_checkpointing', type=bool, required=True,  default=True, help="Enable gradient checkpointing")
     parser.add_argument('--bf16', type=bool, required=True, default=True, help="Use bf16 mixed precision")
+    parser.add_argument('--seed', type=int, default=2024, help="Random seed for initialization")
 
     return parser.parse_args()
 
@@ -101,6 +102,7 @@ if __name__ == "__main__":
         ddp_find_unused_parameters=args.ddp_find_unused_parameters,
         gradient_checkpointing=args.gradient_checkpointing,
         bf16=args.bf16,
+        seed=args.seed
     )
 
     trainer = Trainer(
