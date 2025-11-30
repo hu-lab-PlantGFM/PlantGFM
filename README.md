@@ -147,8 +147,8 @@ Before proceeding, please note the following **critical configurations**: 🔍
 - **Handling Other Bases**: Although our model was pre-trained primarily on `'A', 'T', 'C', 'G', 'N'`, it allows for a small frequency of other characters.
 - **Recommended Hyperparameters**: To ensure stable convergence and reproducibility, we recommend setting the learning rate to 1e-4 or 5e-5 and weight decay to 0.01, while keeping all other parameters at their default values.
 - **Training Dynamics**:
-        - ***Fast Convergence***: For classification tasks like ***TFBS Prediction*** and ***Chromatin Accessibility***, the model converges rapidly. It typically requires only ***a few epochs*** to reach optimal performance.
-        - ***Extended Training***: For ***Regression tasks*** (e.g., Gene Expression, CRE Strength), the model requires a longer training horizon. We recommend running for ***dozens of epochs*** to ensure full convergence.
+    - **Classification Tasks** (e.g., TFBS Prediction, Chromatin Accessibility): Converge rapidly, typically requiring only **a few epochs**.
+    - **Regression Tasks** (e.g., Gene Expression, CRE Strength): Require an extended training horizon, usually needing **dozens of epochs** for full convergence.
 - **Data Format**: Please ensure your data strictly follows the **CSV** (for Classification/Regression) or **TSV** (for Segmentation) formats provided in the **[Sample Data (Section 2)](#2-data-preparation--benchmarks-)**.
 
 ```bash
