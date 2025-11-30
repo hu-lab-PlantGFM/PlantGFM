@@ -17,7 +17,7 @@ def read_valid_ids(region_file):
     valid_ids = []
     with open(region_file, 'r') as file:
         for line in file:
-            if line.startswith("NC_090"):
+            if line.startswith("NC"):
                 parts = line.strip().split('\t')
                 chrom = parts[0]
                 valid_ids.append(chrom)
@@ -37,25 +37,23 @@ def full_genome_slice(chromosomes, seq_length):
         # Slide through the chromosome and extract sequences of the specified length
         start_pos = 0
         while start_pos + seq_length < len(chrom_seq):
-            sequence = chrom_seq[start_pos:start_pos + seq_length].upper()
+            sequence = chrom_seq[start_pos:start_pos + seq_length]
             
             # # Check if the sequence contains any invalid characters (i.e., anything other than ATCG)
-            if calculate_n_percentage(sequence, seq_length) < 0.05:
-                valid_sequences.append((chrom_id, start_pos, start_pos + seq_length, sequence.reverse_complement()))
+            if "N" not in sequence:
+                valid_sequences.append((chrom_id, start_pos, start_pos + seq_length, sequence.upper()))
             start_pos = start_pos + seq_length
-            
-            # overlap_offset = random.randint(0, 512)
-            # start_pos = start_pos + seq_length - overlap_offset
 
-        last_sequence = chrom_seq[len(chrom_seq)-seq_length:len(chrom_seq)].upper()          
-        valid_sequences.append((chrom_id, len(chrom_seq)-seq_length, len(chrom_seq), last_sequence.reverse_complement()))
+            # overlap_offset = random.randint(0, 512)
+            # start_pos = start_pos + seq_length - overlap_offset           
+
+        valid_sequences.append((chrom_id, len(chrom_seq)-seq_length, len(chrom_seq), chrom_seq[len(chrom_seq)-seq_length:len(chrom_seq)].upper()))
 
     return valid_sequences
 
 # Save the extracted sequences in TSV format
 def save_sequences_to_tsv(sequences, output_file):
     with open(output_file, "w") as f:
-        # f.write("sequence\n")  # Write header
         for _, _, _, sequence in sequences:
             sequence = " ".join(list(sequence))
             f.write(f"{sequence}\n")
@@ -85,7 +83,7 @@ if __name__ == "__main__":
     sequence_length = args.sequence_length
 
     # Run program
-    valid_ids = read_valid_ids(region_file)[-2:]
+    valid_ids = read_valid_ids(region_file)
     print(valid_ids)
     # valid_ids = [f"NC_0634{i}.1" for i in range(34,43)] + [f"NC_0634{i}.1" for i in range(44,52)]
     # valid_ids = ["NC_063443.1","NC_063452.1"]

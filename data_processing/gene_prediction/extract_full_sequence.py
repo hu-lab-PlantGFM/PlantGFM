@@ -54,9 +54,8 @@ def full_genome_slice(chromosomes, seq_length):
 # Save the extracted sequences in TSV format
 def save_sequences_to_tsv(sequences, output_file):
     with open(output_file, "w") as f:
-        f.write("sequence\n")  # Write header
         for _, _, _, sequence in sequences:
-            # sequence = " ".join(list(sequence))
+            sequence = " ".join(list(sequence))
             f.write(f"{sequence}\n")
 
 # Save the extracted sequences information in BED format
