@@ -27,7 +27,28 @@ def tokenize_function_segmentation(examples, tokenizer, max_length):
         for value in column_value:
             value_list = value.split("\t")
             sequence = value_list[0]
-            cds_labels = [eval(value_list[i]) for i in range(1, max_length - 2 + 1)]
+            labels = value_list[1]
+            gene_labels = [eval(l) for l in labels]
+            tokenized_sequence = tokenizer(
+                sequence, 
+                padding="max_length", 
+                truncation=True, 
+                max_length=MAX_LENGTH, 
+                return_tensors="pt", 
+            )
+            tokenized_examples["input_ids"].append(tokenized_sequence["input_ids"].flatten())
+            tokenized_examples["labels"].append(torch.Tensor(gene_labels))
+
+    return tokenized_examples
+
+def tokenize_function_segmentation(examples, tokenizer, max_length):
+    tokenized_examples = {"input_ids": [], "labels": []}
+    for column_name, column_value in examples.items():
+        for value in column_value:
+            value_list = value.split("\t")
+            sequence = value_list[0]
+            labels = value_list[1]
+            gene_labels = [eval(l) for l in labels]
             tokenized_sequence = tokenizer(
                 sequence, 
                 padding="max_length", 
@@ -36,11 +57,11 @@ def tokenize_function_segmentation(examples, tokenizer, max_length):
                 return_tensors="pt", 
             )
             tokenized_examples["input_ids"].append(tokenized_sequence["input_ids"].flatten())
-            tokenized_examples["labels"].append(torch.Tensor(cds_labels))
-
+            tokenized_examples["labels"].append(torch.Tensor(gene_labels))
     return tokenized_examples
 
-    
+
+
 # Function to compute evaluation metrics for regression task
 def compute_metrics_for_regression_task(eval_pred):
     predictions, labels = eval_pred
