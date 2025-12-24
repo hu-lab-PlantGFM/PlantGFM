@@ -71,8 +71,7 @@ def compute_metrics_for_regression_task(eval_pred):
 # Function to compute evaluation metrics for classification task
 def compute_metrics_for_classification_task(eval_pred):
     predictions, labels = eval_pred
-    pred_labels = predictions.argmax(axis=-1) if len(predictions.shape) > 1 else predictions
-    acc = accuracy_score(labels, pred_labels)
+    acc = accuracy_score(labels, predictions.flatten() > 0.5)
     return {"accuracy": acc}
 
 def sigmoid(x):
