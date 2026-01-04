@@ -45,9 +45,9 @@ To facilitate reproducibility, we provide **sample data** (demos) in this reposi
 | **Gene Prediction** | Segmentation | [`./sample_data/Gene_Pred...`](./sample_data/Gene_Prediction) | (See Sec 2.1) |
 | **Gene Generation** | CLM | [`./sample_data/Gene_Gen...`](./sample_data/Gene_Generation) |[📥 **Download from Hugging Face**](https://huggingface.co/datasets/hu-lab/Gene_Generation) |
 | **TFBS Prediction** | Classification | [`./sample_data/TFBS_...`](./sample_data/TFBS_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/datasets/hu-lab/TFBS_Prediction) |
-| **CRE Strength** | Regression | [`./sample_data/CREs_...`](./sample_data/CREs_Strength_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets/hu-lab/CREs_Strength_Prediction) |
-| **Gene Expression** | Regression | [`./sample_data/Gene_Exp...`](./sample_data/Gene_Expression_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets/hu-lab/Gene_Expression_Prediction) |
-| **Chromatin Access.** | Classification | [`./sample_data/Chromatin...`](./sample_data/Chromatin_Accessibility_Prediction_ZM) | [📥 **Download from Hugging Face**](https://huggingface.co/hu-lab/datasets/hu-lab/Chromatin_Accessibility_Prediction_ZM) |
+| **CRE Strength** | Regression | [`./sample_data/CREs_...`](./sample_data/CREs_Strength_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/datasets/hu-lab/CREs_Strength_Prediction) |
+| **Gene Expression** | Regression | [`./sample_data/Gene_Exp...`](./sample_data/Gene_Expression_Prediction) | [📥 **Download from Hugging Face**](https://huggingface.co/datasets/hu-lab/Gene_Expression_Prediction) |
+| **Chromatin Access.** | Classification | [`./sample_data/Chromatin...`](./sample_data/Chromatin_Accessibility_Prediction_ZM) | [📥 **Download from Hugging Face**](https://huggingface.co/datasets/hu-lab/Chromatin_Accessibility_Prediction_ZM) |
 
 
 > **Note**: The `sample_data` folder contains only mini-batches provided for debugging purposes.
